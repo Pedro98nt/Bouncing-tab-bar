@@ -1,0 +1,184 @@
+#tabbar {
+    --background: #fff;
+    --shadow: rgba(0, 0, 0, 0.2);
+    --menu-icon: #BBC1E1;
+    --menu-icon-move: 0;
+    --menu-icon-rotate: 0;
+    --menu-icon-add: #275EFE;
+    --menu-icon-add-opacity: 0;
+    --menu-icon-add-background: rgba(39, 94, 254, 0.08);
+    --options-icon: #404660;
+    --options-y: 16;
+    --options-middle-y: 16;
+    --options-opacity: 0;
+    margin-top: 10%;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+  }
+  #tabbar.gooey {
+    -webkit-filter: url(#goo);
+            filter: url(#goo);
+  }
+  #tabbar:before {
+    content: '';
+    display: block;
+    height: 760px;
+    position: absolute;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 60px;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  #tabbar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    left: var(--list-spacing-h, 60px);
+    right: var(--list-spacing-h, 60px);
+    top: var(--list-spacing-top, 0);
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+            align-items: center;
+  }
+  #tabbar ul li {
+    -webkit-transform: translate(calc(var(--x, 0) * var(--x-change, 1px)), calc(var(--y, 0) * var(--x-change, 1px))) translateZ(0);
+            transform: translate(calc(var(--x, 0) * var(--x-change, 1px)), calc(var(--y, 0) * var(--x-change, 1px))) translateZ(0);
+  }
+  #tabbar ul li button {
+    display: block;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    background: none;
+    border: none;
+    -webkit-appearance: none;
+  }
+  #tabbar ul.options {
+    --svg-size: 16px;
+    --svg-fill: var(--options-icon);
+  }
+  #tabbar ul.options li {
+    --y: var(--options-y);
+  }
+  #tabbar ul.options li button {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+    width: var(--size, 52px);
+    height: var(--size, 52px);
+    border-radius: 50%;
+    background: var(--background);
+  }
+  #tabbar ul.options li button svg {
+    opacity: var(--options-opacity);
+  }
+  #tabbar ul.options li:nth-child(2) {
+    --y: var(--options-middle-y);
+    --size: 64px;
+    --svg-size: 20px;
+  }
+  #tabbar ul.menu {
+    --list-spacing-h: 74px;
+    --list-spacing-top: 46px;
+    --svg-size: 24px;
+    --svg-fill: var(--menu-icon);
+    z-index: 2;
+  }
+  #tabbar ul.menu li:first-child {
+    --x: var(--menu-icon-move);
+  }
+  #tabbar ul.menu li.add {
+    position: relative;
+  }
+  #tabbar ul.menu li.add button:before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: -12px;
+    display: block;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    opacity: var(--menu-icon-add-opacity);
+    background: var(--menu-icon-add-background);
+    -webkit-transform: translateY(calc(var(--menu-icon-move) * 1px)) translateZ(0);
+            transform: translateY(calc(var(--menu-icon-move) * 1px)) translateZ(0);
+  }
+  #tabbar ul.menu li.add button svg {
+    stroke-width: 3.5;
+    stroke: var(--menu-icon-add);
+    stroke-linecap: round;
+    -webkit-transform: translateY(calc(var(--menu-icon-move) * 1px)) rotate(calc(var(--menu-icon-rotate) * 1deg)) translateZ(0);
+            transform: translateY(calc(var(--menu-icon-move) * 1px)) rotate(calc(var(--menu-icon-rotate) * 1deg)) translateZ(0);
+  }
+  #tabbar ul.menu li:last-child {
+    --x: var(--menu-icon-move);
+    --x-change: -1px;
+  }
+  #tabbar svg {
+    display: block;
+    position: relative;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    width: var(--svg-size, var(--svg-size-w, 374px));
+    height: var(--svg-size, var(--svg-size-h, 132px));
+    fill: var(--svg-fill, var(--background));
+  }
+  #tabbar svg.background {
+    margin: -12px -4px -4px -4px;
+    z-index: 1;
+  }
+  
+  html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  * {
+    box-sizing: inherit;
+  }
+  *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    overflow: hidden;
+    min-height: 100vh;
+    font-family: 'Inter';
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+    background: #275EFE;
+  }
+  body .dribbble {
+    position: fixed;
+    display: block;
+    right: 20px;
+    bottom: 20px;
+  }
+  body .dribbble img {
+    display: block;
+    width: 76px;
+  }
+  body .twitter {
+    position: fixed;
+    display: block;
+    right: 112px;
+    bottom: 14px;
+  }
+  body .twitter svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+  }
